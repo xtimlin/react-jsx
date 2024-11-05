@@ -57,6 +57,100 @@ function ProfileCard({title, handle}) {
         </div>
     );
 }
+```
+
+## Passing data from parent to child
+### Parent
+```js
+import  {useState} from "react";
+import AnimalShow  from "./AnimalShow";
+
+function AnimalApp() {
+    const [animals, setAnimal] = useState([]);
+
+    const renderedAnimals = animals.map((animal, index) => {
+        return <AnimalShow key={index} type={animal} />;
+    });
+
+    return (<div>{renderedAnimals}</div>);
+}
+
+export default AnimalApp
+```
+
+### Child
+```js
+import {useState} from "react";
+
+function AnimalShow({animal}) {
+    return (<div>animal</div>);
+}
+
+export default AnimalShow
+```
+
+## Passing data from child to parent
+### Child
+```js
+import {useState} from 'react';
+
+function SearchBar({parentMethodName}) {
+    const [searchValue, setSearchValue] = useState('');
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        parentMethodName(searchValue)
+    }
+
+    const handleChange = (event) => {
+        setSearchValue(event.target.value);
+    }
+
+    return (<form onSubmit={handleFormSubmit}>
+                <input value={searchValue} onChange={handleChange} />
+            </form>)
+}
+
+export default SearchBar;
+```
+
+### parent
+```js
+import SearchBar from "./components/SearchBar";
+import searchImages from "./../api";
+import  {useState} from "react";
+
+function PicApp() {
+    const [images, setImages] = useState([]);
+
+    const handleSubmit = async (searchValue) => {
+        const imagesResult = await searchImages(searchValue);
+        setImages(imagesResult);
+    }
+    return (
+        <div>
+            <SearchBar parentMethodName={handleSubmit} />
+            <ImageList images={images} />  // passing data to diff child component
+        </div>
+    )
+}
+
+
+export default PicApp;
+```
+
+```js
+const [colors, setColors] = useState(['red', 'green']);
+
+const addColorAtIndex = (colorToAdd, index) => {
+  const updatedColors = [
+    ...colors.slice(0, index),
+    colorToAdd,
+    ...colors.slice(index),
+  ];
+  setColors(updatedColors);
+};
+
 
 
 ```
