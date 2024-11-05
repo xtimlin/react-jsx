@@ -151,6 +151,33 @@ const addColorAtIndex = (colorToAdd, index) => {
   setColors(updatedColors);
 };
 
+```
 
 
+## local json db
+```
+npm install json-server@0
+
+create the db json file
+
+update package.json file under the scripts object, `"bookServer": "json-server -p 3001 --watch src/books/db.json"`
+
+run 'npm start bookServer' in terminal
+```
+
+
+## useEffect Function
+always call on first time render, and depending on the 2nd argument it may or may not call,
+* [] -> only call on first time render
+```js
+useEffect(() =>{ fetchBooks() }, [] )
+```
+
+* call every rerender
+```js
+useEffect(() =>{ fetchBooks() })
+```
+* [counter] -> call on first render and only call when counter variable changed
+```js
+useEffect(() =>{ fetchBooks(), [counter] })
 ```
