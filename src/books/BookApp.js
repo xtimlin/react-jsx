@@ -5,12 +5,11 @@ import  {useState} from "react";
 function BookApp() {
     const [books, setBooks] = useState([]);
 
-    const createBook = (bookName) => {
+    const createBook = (bookTitle) => {
         const newBook = [
             ...books,
-            {id: books.length + 1, name: bookName}
+            {id: books.length + 1, title: bookTitle}
         ]
-        // console.log(newBook)
         setBooks(newBook);
     };
 
@@ -18,10 +17,10 @@ function BookApp() {
         setBooks(books.filter((book) => book.id !== id));
     };
 
-    const editBookById = (id, newName) => {
+    const editBookById = (id, newTitle) => {
         const updatedBooks = books.map((book) => {
             if (book.id === id) {
-                return { ...book, name: newName }
+                return { ...book, title: newTitle }
             }
 
             return book;
