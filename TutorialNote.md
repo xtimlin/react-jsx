@@ -1,5 +1,7 @@
 ### JSX Note
 https://jsx-notes.vercel.app/
+https://state-updates.vercel.app/
+https://react.dev/learn
 
 
 ```js
@@ -180,4 +182,47 @@ useEffect(() =>{ fetchBooks() })
 * [counter] -> call on first render and only call when counter variable changed
 ```js
 useEffect(() =>{ fetchBooks(), [counter] })
+```
+
+
+## Context
+
+```js
+// BooksContext.js
+import { createContext, useState } from 'react';
+const BooksContext = createContext();
+
+function Provider({ children }) {
+    const [count, setCount] = useState(0);
+    
+    const valueToShare = {
+        count: count,
+        incrementCount: () => {
+            setCount(count + 1);
+        }
+    };
+    
+    return (
+        <BooksContext.Provider value={valueToShare}>
+            {children}
+        </BooksContext.Provider>
+    )
+}
+
+
+// top parent component
+import BooksContext from './booksContext/context/books'
+root.render(
+    <BooksContext.Provider value={ 5 } >
+        <BookContextApp />
+    </BooksContext.Provider>
+)
+
+
+// access value from component
+import BooksContext from './booksContext/context/books'
+
+function MyComponent() {
+    const num = useContext(BooksContext)
+}
 ```
