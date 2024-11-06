@@ -8,7 +8,7 @@ import BooksContext from './context/books'
 function BookContextApp() {
     const { fetchBooks } = useContext((BooksContext));
 
-    useEffect(() =>{ fetchBooks()},[] )
+    useEffect(() =>{ fetchBooks()},[fetchBooks] )
 
     return (
         <div className='app'>
@@ -18,6 +18,5 @@ function BookContextApp() {
         </div>
     )
 }
-
 
 export default BookContextApp;
