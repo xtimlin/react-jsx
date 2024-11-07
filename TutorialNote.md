@@ -3,6 +3,8 @@ https://jsx-notes.vercel.app/
 https://state-updates.vercel.app/
 https://react.dev/learn
 
+https://tailwindcss.com/docs/installation
+
 
 ```js
 function App() {
@@ -226,3 +228,4 @@ function MyComponent() {
     const num = useContext(BooksContext)
 }
 ```
+

@@ -4,9 +4,10 @@ import ReactDOM from 'react-dom/client';
 // import AnimalApp from "./Animal/AnimalApp";
 // import PicApp from './Pics/PicApp';
 // import BookApp from './books/BookApp';
-import BookContextApp from './booksContext/BookContextApp';
-import {Provider} from './booksContext/context/books'
-import './books/index.css'
+// import BookContextApp from './booksContext/BookContextApp';
+// import {Provider} from './booksContext/context/books'
+// import './books/index.css'
+import CompApp from './comps/CompApp'
 
 const el = document.getElementById('root');
 const root = ReactDOM.createRoot(el);
@@ -15,9 +16,5 @@ const root = ReactDOM.createRoot(el);
 // root.render(<AppComponent />)
 // root.render(<AnimalApp />);
 // root.render(<PicApp />);
-root.render(
-    <Provider>
-        <BookContextApp />
-    </Provider>
-
-)
+// root.render(<Provider><BookContextApp /></Provider>)
+root.render(<CompApp />)
