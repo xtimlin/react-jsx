@@ -4,6 +4,8 @@ https://state-updates.vercel.app/
 https://react.dev/learn
 
 https://tailwindcss.com/docs/installation
+https://tailwindcss.com/blog/headless-ui-v2
+https://tailwindcss.com/docs/
 
 
 ```js
@@ -227,5 +229,12 @@ import BooksContext from './booksContext/context/books'
 function MyComponent() {
     const num = useContext(BooksContext)
 }
+```
+
+## console tool return element on click
+```js
+const handleClick = (event) => console.log(event.target);
+
+document.addEventListener('click', handleClick)
 ```
 

@@ -38,7 +38,7 @@ function Accordion({items}) {
         const icon = <span className='text-2xl'>{isExpanded ? <FaAngleDown/> : <FaAngleLeft/>}</span>
         return (
             // <div key={index} onClick={() => setExpandedIndex(index)}> // inline call works fine
-            <div key={index}>
+            <div key={index} >
                 <div className='flex justify-between p-3 bg-gray-50 border-b items-center cursor-pointer'
                      onClick={() => handleClick(index)}>
                     {item.label}
