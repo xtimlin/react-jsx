@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom/client';
 // import {Provider} from './booksContext/context/books'
 // import './books/index.css'
 import CompApp from './comps/CompApp'
+import {NavigationProvider} from './comps/context/navigation';
 
 const el = document.getElementById('root');
 const root = ReactDOM.createRoot(el);
@@ -17,4 +18,10 @@ const root = ReactDOM.createRoot(el);
 // root.render(<AnimalApp />);
 // root.render(<PicApp />);
 // root.render(<Provider><BookContextApp /></Provider>)
-root.render(<CompApp />)
+// root.render(<CompApp />)
+
+root.render(
+    <NavigationProvider>
+        <CompApp />
+    </NavigationProvider>
+)
